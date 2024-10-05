@@ -1,0 +1,319 @@
+
+ACER@DESKTOP-J3FP1OK MINGW64 /
+$ cd ~
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~
+$ cd desktop
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop
+$ cd TallerGit
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit
+$ git init
+Initialized empty Git repository in C:/Users/ACER/Desktop/TallerGit/.git/
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ echo "archivo readme" > README.md
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git add README.md
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git -m "commit de readme"
+unknown option: -m
+usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]
+           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]
+           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]
+           <command> [<args>]
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git commit -m "commit de readme"
+[master (root-commit) bdfb99b] commit de readme
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git branch
+* master
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git checkout -b feature
+Switched to a new branch 'feature'
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ git branch
+* feature
+  master
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ echo "Texto inicial" > archivo.txt
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ git add archivo.txt
+warning: in the working copy of 'archivo.txt', LF will be replaced by CRLF the next time Git touches it
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ git commit -m "Commit inicial"
+[feature 486c9bf] Commit inicial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 archivo.txt
+
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ echo "Texto agregado en feature" >> archivo.txt
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ git commit -am "Segundo commit en feature"
+warning: in the working copy of 'archivo.txt', LF will be replaced by CRLF the next time Git touches it
+[feature ce90859] Segundo commit en feature
+ 1 file changed, 1 insertion(+)
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ echo "Tercer texto agregado en feature"
+Tercer texto agregado en feature
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ echo "Tercer texto agregado en feature" >> archivo.txt
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ git commit -am "Tercer commit en feature"
+warning: in the working copy of 'archivo.txt', LF will be replaced by CRLF the next time Git touches it
+[feature e21caf5] Tercer commit en feature
+ 1 file changed, 1 insertion(+)
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ git checkout master
+Switched to branch 'master'
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git merge feature
+Updating bdfb99b..e21caf5
+Fast-forward
+ archivo.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 archivo.txt
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git reset --hard HEAD~1
+HEAD is now at ce90859 Segundo commit en feature
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git rebase feature
+Successfully rebased and updated refs/heads/master.
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git checkout -b hotfix
+Switched to a new branch 'hotfix'
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (hotfix)
+$ echo "Correcion urgente" >> archivo.txt
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (hotfix)
+$ git commit -am "Hotfix"
+warning: in the working copy of 'archivo.txt', LF will be replaced by CRLF the next time Git touches it
+[hotfix 787abb3] Hotfix
+ 1 file changed, 1 insertion(+)
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (hotfix)
+$ git checkout master
+Switched to branch 'master'
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git cherry-pick hotfix
+[master 487bb6d] Hotfix
+ Date: Fri Oct 4 20:46:45 2024 -0500
+ 1 file changed, 1 insertion(+)
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git reflog
+487bb6d (HEAD -> master) HEAD@{0}: cherry-pick: Hotfix
+e21caf5 (feature) HEAD@{1}: checkout: moving from hotfix to master
+787abb3 (hotfix) HEAD@{2}: commit: Hotfix
+e21caf5 (feature) HEAD@{3}: checkout: moving from master to hotfix
+e21caf5 (feature) HEAD@{4}: rebase (finish): returning to refs/heads/master
+e21caf5 (feature) HEAD@{5}: rebase (start): checkout feature
+ce90859 HEAD@{6}: reset: moving to HEAD~1
+e21caf5 (feature) HEAD@{7}: merge feature: Fast-forward
+bdfb99b HEAD@{8}: checkout: moving from feature to master
+e21caf5 (feature) HEAD@{9}: commit: Tercer commit en feature
+ce90859 HEAD@{10}: commit: Segundo commit en feature
+486c9bf HEAD@{11}: commit: Commit inicial
+bdfb99b HEAD@{12}: checkout: moving from master to feature
+bdfb99b HEAD@{13}: commit (initial): commit de readme
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git reset --hard 486c9bf
+HEAD is now at 486c9bf Commit inicial
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git reset --hard 621caf5
+fatal: ambiguous argument '621caf5': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git reset --hard e21caf5
+HEAD is now at e21caf5 Tercer commit en feature
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git checkout feature
+Switched to branch 'feature'
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ echo "cambio en feature" > conficto.txt
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ git commit -am "Cambio en feature"
+On branch feature
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        conficto.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ git add conflicto.txt
+fatal: pathspec 'conflicto.txt' did not match any files
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ git commit -am "Cambio en feature"
+On branch feature
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        conficto.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ git add conficto.txt
+warning: in the working copy of 'conficto.txt', LF will be replaced by CRLF the next time Git touches it
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ git commit -am "Cambio en feature"
+[feature 6cee042] Cambio en feature
+ 1 file changed, 1 insertion(+)
+ create mode 100644 conficto.txt
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (feature)
+$ git checkout master
+Switched to branch 'master'
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ echo "cambio en master" > conficto.txt
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git add conficto.txt
+warning: in the working copy of 'conficto.txt', LF will be replaced by CRLF the next time Git touches it
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git commit -am "Cambio en master"
+[master c84f0ed] Cambio en master
+ 1 file changed, 1 insertion(+)
+ create mode 100644 conficto.txt
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git merge
+fatal: No remote for the current branch.
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git merge feature
+Auto-merging conficto.txt
+CONFLICT (add/add): Merge conflict in conficto.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both added:      conficto.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master|MERGING)
+$ git add conficto.txt
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master|MERGING)
+$ git commit -am "El conflicto lo resulvo juntando ambas frases en el txt"
+[master e117fc0] El conflicto lo resulvo juntando ambas frases en el txt
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git push -u origin
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git push -u origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git remote -v
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git remote add origin https://github.com/Forero-Developer/TallerGit.git
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git remote -v
+origin  https://github.com/Forero-Developer/TallerGit.git (fetch)
+origin  https://github.com/Forero-Developer/TallerGit.git (push)
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git push -u origin
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$ git push -u origin master
+Enumerating objects: 21, done.
+Counting objects: 100% (21/21), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (14/14), done.
+Writing objects: 100% (21/21), 1.74 KiB | 592.00 KiB/s, done.
+Total 21 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), done.
+To https://github.com/Forero-Developer/TallerGit.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+ACER@DESKTOP-J3FP1OK MINGW64 ~/desktop/TallerGit (master)
+$
